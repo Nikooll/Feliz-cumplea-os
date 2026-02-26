@@ -77,86 +77,72 @@ h1{color:#0a6fb6;margin-top:30px;}
 /* ======================================================
    🎂 PASTEL BONITO
 ====================================================== */
-.pastel{
-    width:320px;
+    .pastel{
+    width:280px;
     margin:50px auto 20px;
     position:relative;
-    text-align:center;
 }
 
-/* velas */
+.plato{
+    width:300px;
+    height:18px;
+    background:#ffffff;
+    border-radius:50px;
+    margin:auto;
+}
+.torta{
+    width:260px;
+    height:80px;
+    background:linear-gradient(#ffcf9e,#f4a261);
+    margin:auto;
+    border-radius:25px;
+    position:relative;
+    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.crema{
+    position:absolute;
+    top:-18px;
+    left:0;
+    right:0;
+    height:25px;
+    background:white;
+    border-radius:20px;
+}
+
+.gotas{
+    position:absolute;
+    top:0;
+    width:100%;
+}
+
+.gotas span{
+    position:absolute;
+    width:12px;
+    height:18px;
+    background:white;
+    border-radius:10px;
+}
+
+.gotas span:nth-child(1){left:25px}
+.gotas span:nth-child(2){left:70px}
+.gotas span:nth-child(3){left:120px}
+.gotas span:nth-child(4){left:170px}
+.gotas span:nth-child(5){left:210px}
+
 .velas{
     position:absolute;
     top:-45px;
     width:100%;
-    font-size:28px;
+    font-size:32px;
 }
 
-/* plato gris azulado */
-.plato{
-    width:320px;
-    height:18px;
-    background:#cdd7e1;
-    border-radius:50px;
-    margin:15px auto 0;
-}
-
-/* contenedor torta */
-.torta{
-    position:relative;
-    width:260px;
-    margin:auto;
-}
-
-/* pisos */
-.piso{
-    margin:auto;
-    border-radius:20px;
-    position:relative;
-    box-shadow:0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* piso inferior celeste */
-.piso1{
-    width:260px;
-    height:70px;
-    background:linear-gradient(#a8e6ff,#90dbf4);
-}
-
-/* piso medio lila */
-.piso2{
-    width:200px;
-    height:60px;
-    background:linear-gradient(#e0c3fc,#cdb4db);
-    margin-top:-15px;
-}
-
-/* piso superior azul pastel */
-.piso3{
-    width:140px;
-    height:50px;
-    background:linear-gradient(#d6f0ff,#bde0fe);
-    margin-top:-15px;
-}
-
-/* crema blanca */
-.crema{
-    position:absolute;
-    top:-12px;
-    left:0;
-    right:0;
-    height:18px;
-    background:white;
-    border-radius:15px;
-}
-
-/* número */
 .numero{
     margin-top:15px;
     font-size:34px;
     font-weight:bold;
     color:#0a6fb6;
-}
+} 
 
 /* ======================================================
    ✉️ CARTAS REALISTAS
@@ -283,31 +269,17 @@ h1{color:#0a6fb6;margin-top:30px;}
 <div id="contenido">
 
 <h1>Feliz cumpleaños amor 💙</h1>
-
-<div class="pastel">
-
-    <div class="velas">
-        🕯️🕯️🕯️🕯️🕯️
-    </div>
-
+    
+    <div class="pastel">
+    <div class="velas">🕯️🕯️🕯️🕯️🕯️🕯️</div>
     <div class="torta">
-        <div class="piso piso1">
-            <div class="crema"></div>
-        </div>
-
-        <div class="piso piso2">
-            <div class="crema"></div>
-        </div>
-
-        <div class="piso piso3">
-            <div class="crema"></div>
+        <div class="crema"></div>
+        <div class="gotas">
+            <span></span><span></span><span></span><span></span><span></span>
         </div>
     </div>
-
     <div class="plato"></div>
-
     <div class="numero">19</div>
-
 </div>
 
 <p>Espero que tenga un día muy bonito 💙</p>
