@@ -1,1 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz Cumpleaños Amor</title>
+<style>
+body{
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
 
+.carta{
+    margin-top:150px;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    background:#ff3c3c;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:white;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff0000;
+    transform:scale(1.1);
+}
+
+.contenido{
+    display:none;
+    margin-top:50px;
+    animation: aparecer 2s ease;
+}
+
+@keyframes aparecer{
+    from{opacity:0; transform:scale(0.8);}
+    to{opacity:1; transform:scale(1);}
+}
+
+.pastel{
+    font-size:100px;
+    animation: flotar 3s infinite alternate;
+}
+
+@keyframes flotar{
+    from{transform:translateY(0);}
+    to{transform:translateY(-20px);}
+}
+
+.moto{
+    position:absolute;
+    bottom:20px;
+    left:-200px;
+    font-size:60px;
+    animation: mover 6s linear infinite;
+}
+
+@keyframes mover{
+    from{left:-200px;}
+    to{left:110%;}
+}
+
+.corazon{
+    position:absolute;
+    color:red;
+    animation: caer 5s linear infinite;
+}
+
+@keyframes caer{
+    from{top:-50px;}
+    to{top:110%;}
+}
+</style>
+</head>
+<body>
+
+<div class="carta">
+    <h1>💌 Tengo algo para ti...</h1>
+    <button onclick="abrirCarta()">Abrir Carta</button>
+</div>
+
+<div class="contenido" id="contenido">
+    <h1>🎉 FELIZ CUMPLEAÑOS AMOR 🎉</h1>
+    <div class="pastel">🎂</div>
+    <h2>Hoy celebro la vida del hombre más increíble 💖</h2>
+    <p>
+        Gracias por existir, por tu sonrisa, por tu fuerza,<br>
+        por ser mi compañero, mi apoyo y mi alegría.<br><br>
+        Que este año venga lleno de sueños cumplidos,<br>
+        aventuras, motos, velocidad 🏍️ y mucho éxito.<br><br>
+        Te amo muchísimo 💕
+    </p>
+</div>
+
+<div class="moto">🏍️💨</div>
+
+<script>
+function abrirCarta(){
+    document.querySelector(".carta").style.display="none";
+    document.getElementById("contenido").style.display="block";
+    lluviaCorazones();
+}
+
+function lluviaCorazones(){
+    setInterval(()=>{
+        let corazon=document.createElement("div");
+        corazon.classList.add("corazon");
+        corazon.innerHTML="❤️";
+        corazon.style.left=Math.random()*100+"%";
+        corazon.style.fontSize=Math.random()*30+20+"px";
+        document.body.appendChild(corazon);
+
+        setTimeout(()=>{
+            corazon.remove();
+        },5000);
+    },500);
+}
+</script>
+
+</body>
+</html>
