@@ -2,19 +2,38 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Feliz 19 Amor</title>
+<title>Feliz 19 💙</title>
 
 <style>
+
+/* ===== FONDO CELESTE ROMÁNTICO ===== */
 body{
     margin:0;
-    background:#ffffff;
     font-family:'Segoe UI',sans-serif;
     text-align:center;
-    color:#333;
+    color:#2b2b2b;
     overflow-x:hidden;
+    background:#eaf6ff;
 }
 
-/* PANTALLA INICIAL */
+/* Corazones sutiles */
+body::before{
+    content:"🤍 🤍 🤍 🤍 🤍 🤍 🤍 🤍 🤍 🤍";
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    font-size:60px;
+    opacity:0.06;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-wrap:wrap;
+    pointer-events:none;
+}
+
+/* ===== PANTALLA INICIAL ===== */
 .inicio{
     height:100vh;
     display:flex;
@@ -22,37 +41,37 @@ body{
     align-items:center;
 }
 
-.boton-abrir{
-    padding:20px 50px;
-    background:#e60000;
-    color:white;
-    border:none;
-    border-radius:15px;
-    font-size:22px;
+.sobre-grande{
+    width:330px;
+    height:200px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
     cursor:pointer;
-    box-shadow:0 15px 35px rgba(230,0,0,0.3);
-    transition:0.3s;
+    transition:0.4s;
 }
 
-.boton-abrir:hover{
+.sobre-grande:hover{
     transform:scale(1.05);
 }
 
-/* CONTENIDO */
+/* ===== CONTENIDO ===== */
 .contenido{
     display:none;
     padding-bottom:80px;
 }
 
-/* TITULO */
 h1{
     margin-top:60px;
-    font-size:55px;
-    color:#e60000;
-    font-weight:600;
+    font-size:48px;
+    color:#0077b6;
 }
 
-/* PASTEL */
+/* ===== PASTEL ===== */
 .pastel-container{
     margin-top:50px;
     position:relative;
@@ -60,8 +79,8 @@ h1{
 }
 
 .capa{
-    width:230px;
-    margin:0 auto;
+    width:220px;
+    margin:auto;
     position:absolute;
     left:0;
     right:0;
@@ -71,16 +90,16 @@ h1{
     opacity:0;
 }
 
-.base{ background:#c85a17; height:80px; bottom:0; }
-.capa2{ background:#f4a261; height:70px; bottom:80px; }
-.crema{ background:#ffe5d9; height:55px; bottom:150px; }
+.base{ background:#b5651d; height:80px; bottom:0; }
+.capa2{ background:#ffd6a5; height:70px; bottom:80px; }
+.crema{ background:#ffffff; height:55px; bottom:150px; }
 
 .velas{
     position:absolute;
     bottom:220px;
     left:0;
     right:0;
-    font-size:32px;
+    font-size:30px;
     transform:translateY(-400px);
     opacity:0;
 }
@@ -92,25 +111,23 @@ h1{
     right:0;
     font-size:50px;
     font-weight:bold;
-    color:#e60000;
+    color:#0077b6;
     opacity:0;
-    animation:brillo 2s infinite alternate;
 }
 
-@keyframes brillo{
-    from{ text-shadow:0 0 5px rgba(230,0,0,0.2); }
-    to{ text-shadow:0 0 20px rgba(230,0,0,0.6); }
-}
-
-/* MENSAJE */
+/* ===== MENSAJE ===== */
 #mensaje{
     margin-top:60px;
-    font-size:22px;
+    font-size:20px;
     white-space:pre-line;
     min-height:60px;
+    width:80%;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
-/* MINI CARTAS */
+/* ===== CARTAS ===== */
 .cartas{
     margin-top:60px;
 }
@@ -118,19 +135,19 @@ h1{
 .sobre{
     width:350px;
     margin:25px auto;
-    background:#ffffff;
-    border-radius:15px;
+    background:white;
+    border-radius:18px;
     box-shadow:0 15px 35px rgba(0,0,0,0.07);
     overflow:hidden;
     transition:0.4s;
+    cursor:pointer;
 }
 
 .sobre-header{
     padding:18px;
-    background:#e60000;
+    background:linear-gradient(135deg,#90e0ef,#0077b6);
     color:white;
     font-weight:500;
-    cursor:pointer;
 }
 
 .sobre-contenido{
@@ -138,7 +155,7 @@ h1{
     overflow:hidden;
     transition:max-height 0.6s ease, padding 0.6s ease;
     padding:0 25px;
-    font-size:17px;
+    font-size:16px;
 }
 
 .sobre.abierto .sobre-contenido{
@@ -153,13 +170,15 @@ h1{
 
 <!-- INICIO -->
 <div class="inicio" id="inicio">
-    <button class="boton-abrir" onclick="abrirTodo()">Abrir</button>
+    <div class="sobre-grande" onclick="abrirTodo()">
+        💌 Toca aquí
+    </div>
 </div>
 
 <!-- CONTENIDO -->
 <div class="contenido" id="contenido">
 
-<h1>Feliz Cumpleaños Amor ❤️</h1>
+<h1>Feliz 19 💙</h1>
 
 <div class="pastel-container">
     <div class="capa base" id="base"></div>
@@ -174,23 +193,26 @@ h1{
 <div class="cartas">
 
     <div class="sobre" onclick="abrirSobre(this)">
-        <div class="sobre-header">Abrir</div>
+        <div class="sobre-header">Primera carta</div>
         <div class="sobre-contenido">
-            Feliz 19 vueltas al sol, mi amor ❤️
+            Hoy cumples 19 y solo quiero recordarte lo importante que eres para mí.
+            Felices 19 vueltas al sol amor.
         </div>
     </div>
 
     <div class="sobre" onclick="abrirSobre(this)">
-        <div class="sobre-header">Abrir</div>
+        <div class="sobre-header">Segunda carta</div>
         <div class="sobre-contenido">
-            Espero que cada uno de tus sueños se cumpla y que pueda estar a tu lado acompañándote.
+            Espero que cada uno de sus sueños se cumpla y pueda estar a su lado. 
+            Siempre estaré orgullosa de usted.
         </div>
     </div>
 
     <div class="sobre" onclick="abrirSobre(this)">
-        <div class="sobre-header">Abrir</div>
+        <div class="sobre-header">Tercera carta</div>
         <div class="sobre-contenido">
-            Queda pendiente esa comida para celebrar su cumple  ❤️
+            Queda pendiente esa comida para celebrar su cumple ❤️
+            
         </div>
     </div>
 
@@ -200,7 +222,6 @@ h1{
 
 <script>
 
-/* ABRIR PRINCIPAL */
 function abrirTodo(){
     document.getElementById("inicio").style.display="none";
     document.getElementById("contenido").style.display="block";
@@ -208,34 +229,31 @@ function abrirTodo(){
     maquina();
 }
 
-/* ANIMACION CAIDA REAL */
 function animarPastel(){
     let elementos=["base","capa2","crema","velas","numero"];
     elementos.forEach((id,i)=>{
         setTimeout(()=>{
             let el=document.getElementById(id);
-            el.style.transition="1s ease";
+            el.style.transition="all 1s cubic-bezier(.68,-0.55,.27,1.55)";
             el.style.transform="translateY(0)";
             el.style.opacity="1";
-        },i*700);
+        },i*800);
     });
 }
 
-/* MAQUINA DE ESCRIBIR */
 function maquina(){
-    let texto="Espero que pase un cumpleaños bonito.\nP.D. No tomara mucho jsjs ❤️";
+    let texto="Feliz cumpleaños.\n Espero tenga un comple muy bonito.💙";
     let i=0;
     function escribir(){
         if(i<texto.length){
             document.getElementById("mensaje").innerHTML+=texto.charAt(i);
             i++;
-            setTimeout(escribir,40);
+            setTimeout(escribir,35);
         }
     }
     escribir();
 }
 
-/* SOLO UNA CARTA ABIERTA */
 function abrirSobre(elemento){
     document.querySelectorAll(".sobre").forEach(s=>{
         if(s!==elemento){
