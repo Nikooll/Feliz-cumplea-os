@@ -2,37 +2,30 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Feliz Cumpleaños Amor</title>
+<title>Feliz Cumpleee Amor</title>
 
 <style>
 body{
     margin:0;
-    background: radial-gradient(circle at center, #111 0%, #000 70%);
     font-family:'Segoe UI',sans-serif;
     color:white;
     text-align:center;
     overflow:hidden;
+    background:url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1920&q=80");
+    background-size:cover;
+    background-position:center;
 }
 
-/* EFECTO LUCES CARRETERA */
-body::before{
+/* OSCURECER FONDO */
+body::after{
     content:"";
     position:absolute;
-    width:200%;
-    height:200%;
-    background: repeating-linear-gradient(
-        90deg,
-        rgba(255,0,0,0.05) 0px,
-        rgba(255,0,0,0.05) 2px,
-        transparent 2px,
-        transparent 60px
-    );
-    animation:moverLuces 6s linear infinite;
-}
-
-@keyframes moverLuces{
-    from{transform:translateX(0);}
-    to{transform:translateX(-200px);}
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.7);
+    z-index:-1;
 }
 
 /* CARTA */
@@ -43,34 +36,21 @@ body::before{
     transform:translate(-50%,-50%);
 }
 
-.sobre{
-    width:220px;
-    height:150px;
-    background:#111;
-    border:2px solid #aa0000;
-    border-radius:5px;
-    box-shadow:0 0 20px rgba(255,0,0,0.3);
-}
-
-.sello{
-    width:45px;
-    height:45px;
-    background:#aa0000;
-    border-radius:50%;
-    margin:50px auto;
-    box-shadow:0 0 15px red;
+.sobre-img{
+    width:250px;
+    filter:drop-shadow(0 0 20px red);
 }
 
 button{
     margin-top:20px;
     padding:12px 30px;
-    background:linear-gradient(#555,#222);
+    background:linear-gradient(#444,#111);
     color:white;
     border:none;
-    border-radius:5px;
+    border-radius:6px;
     cursor:pointer;
     font-size:16px;
-    box-shadow:0 0 10px rgba(255,0,0,0.5);
+    box-shadow:0 0 15px rgba(255,0,0,0.6);
 }
 
 button:hover{
@@ -91,10 +71,7 @@ button:hover{
 
 h1{
     font-size:45px;
-    background:linear-gradient(90deg,#fff,#999,#fff);
-    -webkit-background-clip:text;
-    color:transparent;
-    text-shadow:0 0 20px rgba(255,255,255,0.3);
+    text-shadow:0 0 20px red;
 }
 
 .latido{
@@ -105,49 +82,44 @@ h1{
 
 @keyframes latido{
     0%{transform:scale(1);}
-    50%{transform:scale(1.25);}
+    50%{transform:scale(1.2);}
     100%{transform:scale(1);}
 }
 
 .pastel{
     font-size:100px;
-    animation:flotar 3s infinite alternate;
+    margin-top:20px;
 }
 
-@keyframes flotar{
-    from{transform:translateY(0);}
-    to{transform:translateY(-15px);}
-}
-
-/* MOTO */
+/* MOTO DE CARRERAS */
 .moto{
     position:absolute;
-    bottom:30px;
-    left:-200px;
-    font-size:70px;
+    bottom:40px;
+    left:-300px;
+    width:200px;
     animation:moverMoto 5s linear infinite;
 }
 
 @keyframes moverMoto{
-    from{left:-200px;}
+    from{left:-300px;}
     to{left:110%;}
 }
 
 /* HUMO */
 .humo{
     position:absolute;
-    bottom:40px;
+    bottom:60px;
     left:0;
-    width:15px;
-    height:15px;
-    background:rgba(200,200,200,0.2);
+    width:20px;
+    height:20px;
+    background:rgba(200,200,200,0.3);
     border-radius:50%;
     animation:humoAnim 2s linear infinite;
 }
 
 @keyframes humoAnim{
-    0%{transform:translateX(0) scale(1); opacity:0.5;}
-    100%{transform:translateX(100px) scale(3); opacity:0;}
+    0%{transform:translateX(0) scale(1); opacity:0.6;}
+    100%{transform:translateX(120px) scale(3); opacity:0;}
 }
 
 /* CORAZONES */
@@ -162,7 +134,7 @@ h1{
     to{top:110%;}
 }
 
-/* TEXTO MAQUINA */
+/* MAQUINA */
 #mensaje{
     margin-top:40px;
     font-size:22px;
@@ -177,19 +149,19 @@ h1{
 <body>
 
 <div class="carta" id="carta">
-    <div class="sobre">
-        <div class="sello"></div>
-    </div>
+    <img class="sobre-img" src="https://cdn-icons-png.flaticon.com/512/561/561127.png">
+    <br>
     <button onclick="abrirCarta()">Abrir</button>
 </div>
 
 <div class="contenido" id="contenido">
-    <h1>Feliz Cumpleaños <span class="latido">Amor</span></h1>
+    <h1>Feliz Cumpleee <span class="latido">Amor</span></h1>
     <div class="pastel">🎂</div>
     <div id="mensaje"></div>
 </div>
 
-<div class="moto">🏍️💨</div>
+<!-- MOTO CARRERA -->
+<img class="moto" src="https://pngimg.com/uploads/motorcycle/motorcycle_PNG3148.png">
 
 <audio id="musica" loop>
 <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_5f4b57f4b0.mp3?filename=romantic-background-112191.mp3" type="audio/mpeg">
@@ -205,7 +177,7 @@ function abrirCarta(){
     crearHumo();
 }
 
-/* CORAZONES SOLO 5 SEGUNDOS */
+/* CORAZONES 5 SEGUNDOS */
 function lluviaCorazones(){
     let intervalo=setInterval(()=>{
         let corazon=document.createElement("div");
@@ -218,34 +190,30 @@ function lluviaCorazones(){
         setTimeout(()=>{corazon.remove();},5000);
     },300);
 
-    setTimeout(()=>{
-        clearInterval(intervalo);
-    },5000);
+    setTimeout(()=>{clearInterval(intervalo);},5000);
 }
 
-/* MAQUINA DE ESCRIBIR */
+/* MAQUINA */
 function maquinaEscribir(){
-    let texto="espero q pases un cumpleaños increible\npostada no tomaras mucho jajs";
+    let texto="Espero q pases un cumpleaños increible\n P.D no tomaras mucho jsjs";
     let i=0;
-    let velocidad=60;
     function escribir(){
         if(i<texto.length){
             document.getElementById("mensaje").innerHTML+=texto.charAt(i);
             i++;
-            setTimeout(escribir,velocidad);
+            setTimeout(escribir,60);
         }
     }
     escribir();
 }
 
-/* HUMO MOTO */
+/* HUMO */
 function crearHumo(){
     setInterval(()=>{
         let humo=document.createElement("div");
         humo.classList.add("humo");
-        humo.style.left=(Math.random()*100)+"px";
+        humo.style.left=(Math.random()*150)+"px";
         document.body.appendChild(humo);
-
         setTimeout(()=>{humo.remove();},2000);
     },200);
 }
