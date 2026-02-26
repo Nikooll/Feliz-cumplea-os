@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Feliz 19</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div id="inicio">
+    <div id="sobreGrande" onclick="abrirTodo()">💌 Toca aquí</div>
+</div>
+
+<div id="contenido">
+<h1>Feliz 19 💙</h1>
+
+<div class="pastel">
+    <div class="numero">19</div>
+    <div class="velas">🕯️🕯️</div>
+    <div class="top"></div>
+    <div class="medio"></div>
+    <div class="base"></div>
+</div>
+
+<p id="mensaje">
+Feliz cumpleaños. Espero que tenga un día muy bonito 💙
+</p>
+
+<div class="carta" onclick="abrirCarta(this)">
+<h3>1</h3>
+<div class="contenidoCarta">
+Hoy cumples 19 y solo quiero recordarte lo importante que eres para mí.
+Felices 19 vueltas al sol amor.
+</div>
+</div>
+
+<div class="carta" onclick="abrirCarta(this)">
+<h3>2</h3>
+<div class="contenidoCarta">
+Espero que cada uno de sus sueños se cumpla y pueda estar a su lado. 
+Siempre estaré orgullosa de usted.
+</div>
+</div>
+
+<div class="carta" onclick="abrirCarta(this)">
+<h3>3</h3>
+<div class="contenidoCarta">
+Queda pendiente esa comida para celebrar su cumple ❤️
+
+</div>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

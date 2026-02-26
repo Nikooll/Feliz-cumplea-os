@@ -1,0 +1,22 @@
+function abrirTodo(){
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("contenido").style.display="block";
+}
+
+function abrirCarta(carta){
+    carta.classList.toggle("abierta");
+    confeti();
+}
+
+function confeti(){
+    for(let i=0;i<25;i++){
+        let c=document.createElement("div");
+        c.className="confeti";
+        let colores=["#0a6fb6","#ffd6a5","#ffffff","#90e0ef"];
+        c.style.background=colores[Math.floor(Math.random()*colores.length)];
+        c.style.left=Math.random()*100+"vw";
+        c.style.animationDuration=(Math.random()*2+2)+"s";
+        document.body.appendChild(c);
+        setTimeout(()=>{c.remove()},3000);
+    }
+}
