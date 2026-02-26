@@ -7,110 +7,165 @@
 <style>
 body{
     margin:0;
-    background:white;
+    background:#ffffff;
     font-family:'Segoe UI',sans-serif;
     text-align:center;
     color:#333;
+    overflow-x:hidden;
+}
+
+/* PANTALLA INICIAL */
+.inicio{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.boton-abrir{
+    padding:20px 50px;
+    background:#e60000;
+    color:white;
+    border:none;
+    border-radius:15px;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 15px 35px rgba(230,0,0,0.3);
+    transition:0.3s;
+}
+
+.boton-abrir:hover{
+    transform:scale(1.05);
+}
+
+/* CONTENIDO */
+.contenido{
+    display:none;
+    padding-bottom:80px;
 }
 
 /* TITULO */
 h1{
     margin-top:60px;
-    font-size:48px;
-    font-weight:300;
-}
-
-.amor{
-    color:red;
-    font-weight:bold;
-}
-
-.corazon{
-    color:red;
-    font-size:40px;
+    font-size:55px;
+    color:#e60000;
+    font-weight:600;
 }
 
 /* PASTEL */
 .pastel-container{
-    margin-top:40px;
+    margin-top:50px;
     position:relative;
-    height:220px;
+    height:300px;
 }
 
 .capa{
-    width:180px;
+    width:230px;
     margin:0 auto;
     position:absolute;
     left:0;
     right:0;
+    border-radius:18px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.08);
+    transform:translateY(-400px);
     opacity:0;
 }
 
-.base{ background:#d2691e; height:50px; bottom:0; border-radius:10px; }
-.capa2{ background:#f4a460; height:40px; bottom:50px; border-radius:10px; }
-.crema{ background:#fff5ee; height:30px; bottom:90px; border-radius:10px; }
-.velas{ bottom:120px; font-size:30px; }
+.base{ background:#c85a17; height:80px; bottom:0; }
+.capa2{ background:#f4a261; height:70px; bottom:80px; }
+.crema{ background:#ffe5d9; height:55px; bottom:150px; }
+
+.velas{
+    position:absolute;
+    bottom:220px;
+    left:0;
+    right:0;
+    font-size:32px;
+    transform:translateY(-400px);
+    opacity:0;
+}
 
 .numero{
     position:absolute;
-    bottom:150px;
+    bottom:260px;
     left:0;
     right:0;
-    font-size:40px;
+    font-size:50px;
     font-weight:bold;
-    color:#333;
+    color:#e60000;
     opacity:0;
+    animation:brillo 2s infinite alternate;
+}
+
+@keyframes brillo{
+    from{ text-shadow:0 0 5px rgba(230,0,0,0.2); }
+    to{ text-shadow:0 0 20px rgba(230,0,0,0.6); }
 }
 
 /* MENSAJE */
 #mensaje{
-    margin-top:40px;
-    font-size:20px;
-    min-height:50px;
+    margin-top:60px;
+    font-size:22px;
     white-space:pre-line;
+    min-height:60px;
 }
 
 /* MINI CARTAS */
 .cartas{
-    margin-top:40px;
+    margin-top:60px;
 }
 
-.mini-carta{
-    margin:15px auto;
-    width:300px;
-    padding:15px;
-    border:1px solid #ddd;
-    border-radius:10px;
+.sobre{
+    width:350px;
+    margin:25px auto;
+    background:#ffffff;
+    border-radius:15px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.07);
+    overflow:hidden;
     transition:0.4s;
 }
 
-.mini-carta button{
-    margin-top:10px;
-    padding:6px 15px;
-    background:black;
+.sobre-header{
+    padding:18px;
+    background:#e60000;
     color:white;
-    border:none;
-    border-radius:5px;
+    font-weight:500;
     cursor:pointer;
 }
 
-.contenido-carta{
-    display:none;
-    margin-top:10px;
-    font-size:16px;
+.sobre-contenido{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.6s ease, padding 0.6s ease;
+    padding:0 25px;
+    font-size:17px;
 }
+
+.sobre.abierto .sobre-contenido{
+    max-height:200px;
+    padding:25px;
+}
+
 </style>
 </head>
 
 <body>
 
-<h1>Feliz Cumpleaños <span class="amor">Amor</span> <span class="corazon">❤️</span></h1>
+<!-- INICIO -->
+<div class="inicio" id="inicio">
+    <button class="boton-abrir" onclick="abrirTodo()">Abrir</button>
+</div>
+
+<!-- CONTENIDO -->
+<div class="contenido" id="contenido">
+
+<h1>Feliz Cumpleaños Amor ❤️</h1>
 
 <div class="pastel-container">
     <div class="capa base" id="base"></div>
     <div class="capa capa2" id="capa2"></div>
     <div class="capa crema" id="crema"></div>
-    <div class="capa velas" id="velas">🕯🕯</div>
+    <div class="velas" id="velas">🕯️🕯️</div>
     <div class="numero" id="numero">19</div>
 </div>
 
@@ -118,63 +173,77 @@ h1{
 
 <div class="cartas">
 
-    <div class="mini-carta">
-        <button onclick="abrirMini(this)">Abrir</button>
-        <div class="contenido-carta">
-            Feliz 19 vueltas al sol, mi amor 🤍
+    <div class="sobre" onclick="abrirSobre(this)">
+        <div class="sobre-header">Abrir</div>
+        <div class="sobre-contenido">
+            Feliz 19 vueltas al sol, mi amor ❤️
         </div>
     </div>
 
-    <div class="mini-carta">
-        <button onclick="abrirMini(this)">Abrir</button>
-        <div class="contenido-carta">
-            Espero que cada uno de tus sueños se cumpla y que pueda estar a tu lado acompañándote en cada meta que te propongas.
+    <div class="sobre" onclick="abrirSobre(this)">
+        <div class="sobre-header">Abrir</div>
+        <div class="sobre-contenido">
+            Espero que cada uno de tus sueños se cumpla y que pueda estar a tu lado acompañándote.
         </div>
     </div>
 
-    <div class="mini-carta">
-        <button onclick="abrirMini(this)">Abrir</button>
-        <div class="contenido-carta">
-            Queda pendiente esa comida especial para celebrar tu cumpleaños como se debe 🤍
+    <div class="sobre" onclick="abrirSobre(this)">
+        <div class="sobre-header">Abrir</div>
+        <div class="sobre-contenido">
+            Queda pendiente esa comida para celebrar su cumple  ❤️
         </div>
     </div>
 
 </div>
 
+</div>
+
 <script>
 
-/* ANIMACION PASTEL */
+/* ABRIR PRINCIPAL */
+function abrirTodo(){
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("contenido").style.display="block";
+    animarPastel();
+    maquina();
+}
+
+/* ANIMACION CAIDA REAL */
 function animarPastel(){
     let elementos=["base","capa2","crema","velas","numero"];
     elementos.forEach((id,i)=>{
         setTimeout(()=>{
-            document.getElementById(id).style.opacity="1";
-        },i*600);
+            let el=document.getElementById(id);
+            el.style.transition="1s ease";
+            el.style.transform="translateY(0)";
+            el.style.opacity="1";
+        },i*700);
     });
 }
 
 /* MAQUINA DE ESCRIBIR */
 function maquina(){
-    let texto="Espero que pases un cumpleaños increíble.\nP.D. No tomarás mucho jajs 🤍";
+    let texto="Espero que pase un cumpleaños bonito.\nP.D. No tomara mucho jsjs ❤️";
     let i=0;
     function escribir(){
         if(i<texto.length){
             document.getElementById("mensaje").innerHTML+=texto.charAt(i);
             i++;
-            setTimeout(escribir,50);
+            setTimeout(escribir,40);
         }
     }
     escribir();
 }
 
-/* MINI CARTAS */
-function abrirMini(boton){
-    let contenido=boton.nextElementSibling;
-    contenido.style.display=contenido.style.display==="block"?"none":"block";
+/* SOLO UNA CARTA ABIERTA */
+function abrirSobre(elemento){
+    document.querySelectorAll(".sobre").forEach(s=>{
+        if(s!==elemento){
+            s.classList.remove("abierto");
+        }
+    });
+    elemento.classList.toggle("abierto");
 }
-
-animarPastel();
-maquina();
 
 </script>
 
