@@ -69,13 +69,13 @@ body::before{
     border-radius:20px 20px 0 0;
 }
 
-#contenido{display:none;padding-bottom:50px;}
+#contenido{display:none;padding-bottom:120px;}
 
 h1{color:#0a6fb6;margin-top:30px;}
 
 
 /* ======================================================
-   🎂 PASTEL BONITO REALISTA
+   🎂 PASTEL BONITO
 ====================================================== */
 .pastel{
     width:280px;
@@ -149,9 +149,7 @@ h1{color:#0a6fb6;margin-top:30px;}
 /* ======================================================
    ✉️ CARTAS REALISTAS
 ====================================================== */
-.contenedorCartas{
-    margin-top:40px;
-}
+.contenedorCartas{margin-top:40px;}
 
 .carta{
     width:280px;
@@ -201,13 +199,40 @@ h1{color:#0a6fb6;margin-top:30px;}
     justify-content:center;
 }
 
-.carta.abierta .solapa{
-    transform:rotateX(180deg);
+.carta.abierta .solapa{transform:rotateX(180deg);}
+.carta.abierta .papel{height:120px;padding:15px;}
+
+
+/* ======================================================
+   🏍️ MOTO ANIMADA
+====================================================== */
+.moto{
+    position:fixed;
+    bottom:25px;
+    left:-120px;
+    font-size:55px;
+    z-index:999;
 }
 
-.carta.abierta .papel{
-    height:120px;
-    padding:15px;
+.moto.activa{
+    animation:conducir 6s linear forwards;
+}
+
+@keyframes conducir{
+    from{left:-120px}
+    to{left:110vw}
+}
+
+/* corazones que deja la moto */
+.corazonMoto{
+    position:fixed;
+    font-size:18px;
+    animation:subir 2s ease-out forwards;
+    pointer-events:none;
+}
+
+@keyframes subir{
+    to{transform:translateY(-80px);opacity:0}
 }
 
 
@@ -228,6 +253,13 @@ h1{color:#0a6fb6;margin-top:30px;}
 </head>
 
 <body>
+
+<!-- SONIDO MOTO (pon aquí tu archivo mp3) -->
+<audio id="sonidoMoto" src="moto.mp3"></audio>
+
+<!-- MOTO -->
+<div id="moto" class="moto">🏍️</div>
+
 
 <!-- ===== INICIO ===== -->
 <div id="inicio">
@@ -257,21 +289,21 @@ h1{color:#0a6fb6;margin-top:30px;}
 
 <div class="contenedorCartas">
 
-<div class="carta" onclick="abrirCarta(this)">
+<div class="carta" onclick="abrirCarta(this, true)">
     <div class="sobre">
         <div class="solapa"></div>
         <div class="papel">Hoy cumples 19 y solo quiero recordarte lo importante que eres para mí. Felices 19 vueltas al sol amor.</div>
     </div>
 </div>
 
-<div class="carta" onclick="abrirCarta(this)">
+<div class="carta" onclick="abrirCarta(this, false)">
     <div class="sobre">
         <div class="solapa"></div>
         <div class="papel">Espero que cada uno de sus sueños se cumpla y pueda estar a su lado. Siempre estaré orgullosa de usted.</div>
     </div>
 </div>
 
-<div class="carta" onclick="abrirCarta(this)">
+<div class="carta" onclick="abrirCarta(this, false)">
     <div class="sobre">
         <div class="solapa"></div>
         <div class="papel">Queda pendiente esa comida para celebrar su cumple ❤️</div>
@@ -284,14 +316,48 @@ h1{color:#0a6fb6;margin-top:30px;}
 
 <script>
 
+let motoActiva=false;
+
 function abrirTodo(){
     document.getElementById("inicio").style.display="none";
     document.getElementById("contenido").style.display="block";
 }
 
-function abrirCarta(carta){
+function abrirCarta(carta, principal){
     carta.classList.toggle("abierta");
     lanzarConfeti();
+
+    if(principal && !motoActiva){
+        iniciarMoto();
+        motoActiva=true;
+    }
+}
+
+function iniciarMoto(){
+    const moto=document.getElementById("moto");
+    const sonido=document.getElementById("sonidoMoto");
+
+    sonido.currentTime=0;
+    sonido.play().catch(()=>{});
+
+    moto.classList.add("activa");
+
+    const intervalo=setInterval(()=>{
+        const rect=moto.getBoundingClientRect();
+        crearCorazon(rect.left+30, rect.top);
+    },150);
+
+    setTimeout(()=>clearInterval(intervalo),6000);
+}
+
+function crearCorazon(x,y){
+    const c=document.createElement("div");
+    c.className="corazonMoto";
+    c.innerHTML="💙";
+    c.style.left=x+"px";
+    c.style.top=y+"px";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),2000);
 }
 
 function lanzarConfeti(){
