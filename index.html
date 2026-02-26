@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz 19</title>
+<title>Feliz cumpelaños amor 💙</title>
 
 <style>
 
-/* ===== ESTILO GENERAL ===== */
+/* ====== ESTILO GENERAL ====== */
 body{
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
@@ -16,7 +16,7 @@ body{
     overflow-x:hidden;
 }
 
-/* fondo corazones */
+/* FONDO CORAZONES */
 body::before{
     content:"💙 💙 💙 💙 💙 💙 💙 💙 💙 💙 💙 💙";
     position:fixed;
@@ -30,7 +30,7 @@ body::before{
     pointer-events:none;
 }
 
-/* pantalla inicio */
+/* ====== PANTALLA INICIAL ====== */
 #inicio{
     height:100vh;
     display:flex;
@@ -51,15 +51,36 @@ body::before{
     font-size:24px;
     font-weight:bold;
     color:#0a6fb6;
+    position:relative;
+}
+
+.sobreGrande::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    margin:auto;
+    width:0;
+    height:0;
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-top:105px solid #e6f4ff;
+    border-radius:20px 20px 0 0;
 }
 
 #contenido{display:none;padding-bottom:120px;}
+
 h1{color:#0a6fb6;margin-top:30px;}
 
-/* ===== PASTEL ===== */
+
+/* ======================================================
+   🎂 PASTEL BONITO
+====================================================== */
 .pastel{
     width:280px;
     margin:50px auto 20px;
+    position:relative;
 }
 
 .plato{
@@ -90,6 +111,12 @@ h1{color:#0a6fb6;margin-top:30px;}
     border-radius:20px;
 }
 
+.gotas{
+    position:absolute;
+    top:0;
+    width:100%;
+}
+
 .gotas span{
     position:absolute;
     width:12px;
@@ -118,7 +145,12 @@ h1{color:#0a6fb6;margin-top:30px;}
     color:#0a6fb6;
 }
 
-/* ===== CARTAS ===== */
+
+/* ======================================================
+   ✉️ CARTAS REALISTAS
+====================================================== */
+.contenedorCartas{margin-top:40px;}
+
 .carta{
     width:280px;
     margin:30px auto;
@@ -148,6 +180,7 @@ h1{color:#0a6fb6;margin-top:30px;}
     border-top:90px solid #095a96;
     transform-origin:top;
     transition:0.6s;
+    z-index:3;
 }
 
 .papel{
@@ -169,37 +202,41 @@ h1{color:#0a6fb6;margin-top:30px;}
 .carta.abierta .solapa{transform:rotateX(180deg);}
 .carta.abierta .papel{height:120px;padding:15px;}
 
-/* ===== MOTO DERECHA → IZQUIERDA ===== */
+
+/* ======================================================
+   🏍️ MOTO ANIMADA
+====================================================== */
 .moto{
     position:fixed;
     bottom:25px;
-    right:-120px;
+    left:-120px;
     font-size:55px;
     z-index:999;
-    transform:scaleX(-1);
 }
 
 .moto.activa{
-    animation:conducir 6s linear forwards;
+    animation:conducir 14s linear forwards;
 }
 
 @keyframes conducir{
-    from{ right:-120px; }
-    to{ right:110vw; }
+    from{left:-120px}
+    to{left:110vw}
 }
 
-/* corazones moto */
+/* corazones que deja la moto */
 .corazonMoto{
     position:fixed;
     font-size:18px;
-    animation:subir 2s ease-out forwards;
+    animation:subir 8s ease-out forwards;
+    pointer-events:none;
 }
 
 @keyframes subir{
     to{transform:translateY(-80px);opacity:0}
 }
 
-/* confeti */
+
+/* ===== CONFETI ===== */
 .confeti{
     position:fixed;
     top:-10px;
@@ -217,52 +254,64 @@ h1{color:#0a6fb6;margin-top:30px;}
 
 <body>
 
+<!-- SONIDO MOTO (pon aquí tu archivo mp3) -->
 <audio id="sonidoMoto" src="moto.mp3"></audio>
+
+<!-- MOTO -->
 <div id="moto" class="moto">🏍️</div>
 
+
+<!-- ===== INICIO ===== -->
 <div id="inicio">
-<div class="sobreGrande" onclick="abrirTodo()">💌 ABRIR</div>
+    <div class="sobreGrande" onclick="abrirTodo()">💌 ABRIR</div>
 </div>
 
+
+<!-- ===== CONTENIDO ===== -->
 <div id="contenido">
 
 <h1>Feliz cumpleaños amor 💙</h1>
 
 <div class="pastel">
-<div class="velas">🕯️🕯️🕯️🕯️</div>
-<div class="torta">
-<div class="crema"></div>
-<div class="gotas">
-<span></span><span></span><span></span><span></span><span></span>
-</div>
-</div>
-<div class="plato"></div>
-<div class="numero">19</div>
+    <div class="velas">🕯️🕯️🕯️</div>
+    <div class="torta">
+        <div class="crema"></div>
+        <div class="gotas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="plato"></div>
+    <div class="numero">19</div>
 </div>
 
 <p>Espero que tenga un día muy bonito 💙</p>
 
-<div class="carta" onclick="abrirCarta(this,true)">
-<div class="sobre">
-<div class="solapa"></div>
-<div class="papel">Hoy es su cumple y solo quiero recordarle lo importante que eres para mí. 
-    </div>Felices 19 vueltas al sol amor 💙</div>
-</div>
+
+<div class="contenedorCartas">
+
+<div class="carta" onclick="abrirCarta(this, true)">
+    <div class="sobre">
+        <div class="solapa"></div>
+        <div class="papel">Hoy es su cumple y solo quiero recordarle lo importante que es para mí. 
+            </div>Felices 19 vueltas al sol amor.</div>
+    </div>
 </div>
 
-<div class="carta" onclick="abrirCarta(this,false)">
-<div class="sobre">
-<div class="solapa"></div>
-<div class="papel">Espero que cada uno de sus sueños se cumpla y pueda estar a su lado. 
-    </div>Siempre estaré orgullosa de usted ✨</div>
-</div>
+<div class="carta" onclick="abrirCarta(this, false)">
+    <div class="sobre">
+        <div class="solapa"></div>
+        <div class="papel">Espero que cada uno de sus sueños se cumpla y pueda estar a su lado. 
+            </div>Siempre estaré orgullosa de usted ✨</div>
+    </div>
 </div>
 
-<div class="carta" onclick="abrirCarta(this,false)">
-<div class="sobre">
-<div class="solapa"></div>
-<div class="papel">Queda pendiente esa comida ❤️</div>
+<div class="carta" onclick="abrirCarta(this, false)">
+    <div class="sobre">
+        <div class="solapa"></div>
+        <div class="papel">Queda pendiente esa comida para celebrar su cumple ❤️</div>
+    </div>
 </div>
+
 </div>
 
 </div>
@@ -272,58 +321,58 @@ h1{color:#0a6fb6;margin-top:30px;}
 let motoActiva=false;
 
 function abrirTodo(){
-document.getElementById("inicio").style.display="none";
-document.getElementById("contenido").style.display="block";
+    document.getElementById("inicio").style.display="none";
+    document.getElementById("contenido").style.display="block";
 }
 
-function abrirCarta(carta,principal){
-carta.classList.toggle("abierta");
-lanzarConfeti();
+function abrirCarta(carta, principal){
+    carta.classList.toggle("abierta");
+    lanzarConfeti();
 
-if(principal && !motoActiva){
-iniciarMoto();
-motoActiva=true;
-}
+    if(principal && !motoActiva){
+        iniciarMoto();
+        motoActiva=true;
+    }
 }
 
 function iniciarMoto(){
-const moto=document.getElementById("moto");
-const sonido=document.getElementById("sonidoMoto");
+    const moto=document.getElementById("moto");
+    const sonido=document.getElementById("sonidoMoto");
 
-sonido.currentTime=0;
-sonido.play().catch(()=>{});
+    sonido.currentTime=0;
+    sonido.play().catch(()=>{});
 
-moto.classList.add("activa");
+    moto.classList.add("activa");
 
-const intervalo=setInterval(()=>{
-const rect=moto.getBoundingClientRect();
-crearCorazon(rect.right-40, rect.top+20);
-},120);
+    const intervalo=setInterval(()=>{
+        const rect=moto.getBoundingClientRect();
+        crearCorazon(rect.left+30, rect.top);
+    },150);
 
-setTimeout(()=>clearInterval(intervalo),6000);
+    setTimeout(()=>clearInterval(intervalo),6000);
 }
 
 function crearCorazon(x,y){
-const c=document.createElement("div");
-c.className="corazonMoto";
-c.innerHTML="💙";
-c.style.left=x+"px";
-c.style.top=y+"px";
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),2000);
+    const c=document.createElement("div");
+    c.className="corazonMoto";
+    c.innerHTML="💙";
+    c.style.left=x+"px";
+    c.style.top=y+"px";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),2000);
 }
 
 function lanzarConfeti(){
-for(let i=0;i<30;i++){
-const c=document.createElement("div");
-c.className="confeti";
-const colores=["#0a6fb6","#ffd6a5","#ffffff","#90e0ef"];
-c.style.background=colores[Math.floor(Math.random()*colores.length)];
-c.style.left=Math.random()*100+"vw";
-c.style.animationDuration=(Math.random()*2+2)+"s";
-document.body.appendChild(c);
-setTimeout(()=>c.remove(),3000);
-}
+    for(let i=0;i<30;i++){
+        const c=document.createElement("div");
+        c.className="confeti";
+        const colores=["#0a6fb6","#ffd6a5","#ffffff","#90e0ef"];
+        c.style.background=colores[Math.floor(Math.random()*colores.length)];
+        c.style.left=Math.random()*100+"vw";
+        c.style.animationDuration=(Math.random()*2+2)+"s";
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),3000);
+    }
 }
 
 </script>
