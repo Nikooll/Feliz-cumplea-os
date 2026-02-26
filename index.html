@@ -2,20 +2,32 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Feliz 19 💙</title>
+<title>Feliz 19</title>
 
 <style>
-
-/* ===== FONDO CELESTE SUAVE ===== */
 body{
     margin:0;
     font-family:'Segoe UI',sans-serif;
-    background:#dbeeff;
+    background:#eaf6ff;
     text-align:center;
-    color:#1e1e1e;
+    color:#2b2b2b;
 }
 
-/* ===== PANTALLA INICIAL ===== */
+/* Corazones */
+body::before{
+    content:"🤍 🤍 🤍 🤍 🤍 🤍 🤍 🤍 🤍 🤍";
+    position:fixed;
+    inset:0;
+    font-size:60px;
+    opacity:0.05;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    flex-wrap:wrap;
+    pointer-events:none;
+}
+
+/* INICIO */
 .inicio{
     height:100vh;
     display:flex;
@@ -23,119 +35,117 @@ body{
     align-items:center;
 }
 
-/* Sobre bonito */
 .sobre-inicial{
-    width:340px;
+    width:350px;
     height:200px;
     background:white;
-    position:relative;
-    border-radius:15px;
+    border-radius:20px;
     box-shadow:0 20px 40px rgba(0,0,0,0.1);
     cursor:pointer;
     display:flex;
-    align-items:center;
     justify-content:center;
-    font-size:18px;
+    align-items:center;
+    font-size:22px;
     transition:0.3s;
 }
 
 .sobre-inicial:hover{
-    transform:scale(1.04);
+    transform:scale(1.05);
 }
 
-.sobre-inicial::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(to bottom right,#ffffff,#f0f0f0);
-    border-radius:15px;
-    z-index:-1;
-}
-
-/* ===== CONTENIDO ===== */
+/* CONTENIDO */
 .contenido{
     display:none;
-    padding-bottom:80px;
+    padding-bottom:60px;
 }
 
 h1{
-    margin-top:60px;
+    margin-top:40px;
     font-size:45px;
     color:#0a6fb6;
 }
 
-/* ===== PASTEL SIMPLE BONITO ===== */
+/* PASTEL */
 .pastel{
     margin:40px auto;
-    width:220px;
-    height:180px;
+    width:240px;
+    height:240px;
     position:relative;
 }
 
 .pastel-base{
-    width:220px;
+    width:240px;
     height:80px;
     background:#b5651d;
-    border-radius:20px;
+    border-radius:25px;
     position:absolute;
     bottom:0;
+    left:0;
+    opacity:0;
+    transform:translateY(-200px);
 }
 
 .pastel-medio{
-    width:200px;
-    height:60px;
+    width:210px;
+    height:70px;
     background:#ffd6a5;
-    border-radius:20px;
+    border-radius:25px;
     position:absolute;
     bottom:80px;
-    left:10px;
+    left:15px;
+    opacity:0;
+    transform:translateY(-200px);
 }
 
 .pastel-top{
     width:180px;
-    height:50px;
+    height:60px;
     background:white;
-    border-radius:20px;
+    border-radius:25px;
     position:absolute;
-    bottom:140px;
-    left:20px;
+    bottom:150px;
+    left:30px;
+    opacity:0;
+    transform:translateY(-200px);
 }
 
 .velas{
     position:absolute;
-    bottom:180px;
-    left:0;
-    right:0;
-    font-size:28px;
+    bottom:210px;
+    width:100%;
+    font-size:30px;
+    opacity:0;
 }
 
-/* ===== MENSAJE ===== */
+.numero{
+    position:absolute;
+    bottom:250px;
+    width:100%;
+    font-size:32px;
+    color:#0a6fb6;
+    opacity:0;
+}
+
+/* MENSAJE */
 #mensaje{
-    margin-top:40px;
-    font-size:18px;
-    white-space:pre-line;
+    margin:30px auto;
     width:80%;
     max-width:500px;
-    margin-left:auto;
-    margin-right:auto;
+    font-size:18px;
+    min-height:60px;
 }
 
-/* ===== CARTAS ===== */
+/* CARTAS */
 .cartas{
-    margin-top:50px;
+    margin-top:30px;
 }
 
-/* Sobre pequeño real */
 .sobre{
-    width:300px;
-    margin:25px auto;
-    position:relative;
+    width:280px;
+    margin:20px auto;
     background:white;
-    border-radius:10px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.08);
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
     cursor:pointer;
     overflow:hidden;
     transition:0.3s;
@@ -151,45 +161,59 @@ h1{
 .sobre-contenido{
     max-height:0;
     overflow:hidden;
-    transition:0.5s ease;
-    padding:0 20px;
-    font-size:15px;
+    transition:0.5s;
+    padding:0 15px;
 }
 
 .sobre.abierto .sobre-contenido{
     max-height:200px;
-    padding:20px;
+    padding:15px;
 }
 
+/* CONFETI */
+.confeti{
+    position:fixed;
+    top:-10px;
+    width:10px;
+    height:10px;
+    opacity:0.8;
+    animation:caer 3s linear forwards;
+    z-index:9999;
+}
+
+@keyframes caer{
+    to{
+        transform:translateY(100vh) rotate(360deg);
+        opacity:0;
+    }
+}
 </style>
 </head>
 
 <body>
 
 <div class="inicio" id="inicio">
-    <div class="sobre-inicial" onclick="abrirTodo()">
-        💌 Toca aquí
-    </div>
+    <div class="sobre-inicial" onclick="abrirTodo()">💌 Toca aquí</div>
 </div>
 
 <div class="contenido" id="contenido">
-
 <h1>Feliz 19 💙</h1>
 
 <div class="pastel">
-    <div class="pastel-base"></div>
-    <div class="pastel-medio"></div>
-    <div class="pastel-top"></div>
-    <div class="velas">🕯️ 🕯️</div>
+    <div class="pastel-base" id="base"></div>
+    <div class="pastel-medio" id="medio"></div>
+    <div class="pastel-top" id="top"></div>
+    <div class="velas" id="velas">🕯️🕯️</div>
+    <div class="numero" id="numero">19</div>
 </div>
 
 <div id="mensaje"></div>
 
 <div class="cartas">
-
     <div class="sobre" onclick="abrirSobre(this)">
         <div class="sobre-header">1</div>
         <div class="sobre-contenido">
+            Hoy cumples 19 y solo quiero recordarte lo importante que eres para mí.
             Hoy es su cumple y solo quiero recordarle lo importante que es para mí.
             Felices 19 vueltas al sol amor.
         </div>
@@ -206,20 +230,32 @@ h1{
     <div class="sobre" onclick="abrirSobre(this)">
         <div class="sobre-header">3</div>
         <div class="sobre-contenido">
+            Queda pendiente esa comida para celebrar su cumple ❤️
+            
             Queda pendiente esa comida para celebrar su cumple ❤️.
         </div>
     </div>
-
 </div>
-
 </div>
 
 <script>
-
 function abrirTodo(){
     document.getElementById("inicio").style.display="none";
     document.getElementById("contenido").style.display="block";
+    animarPastel();
     maquina();
+}
+
+function animarPastel(){
+    let ids=["base","medio","top","velas","numero"];
+    ids.forEach((id,i)=>{
+        setTimeout(()=>{
+            let el=document.getElementById(id);
+            el.style.transition="1s";
+            el.style.opacity="1";
+            el.style.transform="translateY(0)";
+        },i*500);
+    });
 }
 
 function maquina(){
@@ -235,15 +271,29 @@ function maquina(){
     escribir();
 }
 
-function abrirSobre(elemento){
-    document.querySelectorAll(".sobre").forEach(s=>{
-        if(s!==elemento){
-            s.classList.remove("abierto");
-        }
-    });
-    elemento.classList.toggle("abierto");
+function abrirSobre(sobre){
+    sobre.classList.toggle("abierto");
+    lanzarConfeti();
 }
 
+function lanzarConfeti(){
+    for(let i=0;i<30;i++){
+        let confeti=document.createElement("div");
+        confeti.classList.add("confeti");
+
+        let colores=["#0a6fb6","#90e0ef","#ffd6a5","#ffffff"];
+        confeti.style.background=colores[Math.floor(Math.random()*colores.length)];
+
+        confeti.style.left=Math.random()*100+"vw";
+        confeti.style.animationDuration=(Math.random()*2+2)+"s";
+
+        document.body.appendChild(confeti);
+
+        setTimeout(()=>{
+            confeti.remove();
+        },3000);
+    }
+}
 </script>
 
 </body>
