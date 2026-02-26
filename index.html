@@ -38,155 +38,180 @@ body::before{
     align-items:center;
 }
 
-.sobre{
-    width:320px;
-    height:200px;
+.sobreGrande{
+    width:330px;
+    height:210px;
     background:white;
     border-radius:20px;
-    position:relative;
     cursor:pointer;
-    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
     display:flex;
     justify-content:center;
     align-items:center;
-    font-size:22px;
+    font-size:24px;
     font-weight:bold;
     color:#0a6fb6;
-    transition:0.3s;
+    position:relative;
 }
 
-.sobre:hover{
-    transform:scale(1.05);
-}
-
-.sobre::before{
+.sobreGrande::before{
     content:"";
     position:absolute;
     top:0;
     left:0;
-    width:100%;
-    height:100%;
-    background:linear-gradient(135deg, transparent 50%, #e6f4ff 50%);
-    border-radius:20px;
-    opacity:0.7;
+    right:0;
+    margin:auto;
+    width:0;
+    height:0;
+    border-left:165px solid transparent;
+    border-right:165px solid transparent;
+    border-top:105px solid #e6f4ff;
+    border-radius:20px 20px 0 0;
 }
 
 #contenido{display:none;padding-bottom:50px;}
 
-h1{
-    color:#0a6fb6;
-    margin-top:30px;
-}
+h1{color:#0a6fb6;margin-top:30px;}
 
-/* ====== PASTEL BONITO ====== */
+
+/* ======================================================
+   🎂 PASTEL BONITO REALISTA
+====================================================== */
 .pastel{
-    width:260px;
-    height:260px;
-    margin:40px auto;
+    width:280px;
+    margin:50px auto 20px;
     position:relative;
 }
 
-.capa{
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    border-radius:30px;
-    box-shadow:0 8px 15px rgba(0,0,0,0.15);
+.plato{
+    width:300px;
+    height:18px;
+    background:#d9d9d9;
+    border-radius:50px;
+    margin:auto;
 }
 
-.base{
+.torta{
     width:260px;
-    height:90px;
-    bottom:0;
-    background:#b5651d;
-}
-
-.medio{
-    width:220px;
-    height:75px;
-    bottom:85px;
-    background:#ffd6a5;
-}
-
-.top{
-    width:180px;
-    height:65px;
-    bottom:155px;
-    background:white;
-}
-
-.numero{
-    position:absolute;
-    bottom:235px;
-    width:100%;
-    font-size:32px;
-    color:#0a6fb6;
-    font-weight:bold;
-}
-
-.velas{
-    position:absolute;
-    bottom:210px;
-    width:100%;
-    font-size:30px;
-}
-
-/* ====== MENSAJE ====== */
-#mensaje{
-    font-size:18px;
-    margin-top:10px;
-}
-
-/* ====== CARTAS ====== */
-.contenedorCartas{
-    margin-top:30px;
-}
-
-.carta{
-    width:260px;
-    margin:20px auto;
-    cursor:pointer;
-}
-
-.sobreCarta{
+    height:80px;
+    background:linear-gradient(#ffcf9e,#f4a261);
+    margin:auto;
+    border-radius:25px;
     position:relative;
-    background:#0a6fb6;
-    color:white;
-    padding:18px;
-    border-radius:10px;
-    font-weight:bold;
     box-shadow:0 10px 20px rgba(0,0,0,0.2);
 }
 
-.sobreCarta::after{
-    content:"";
+.crema{
     position:absolute;
+    top:-18px;
+    left:0;
+    right:0;
+    height:25px;
+    background:white;
+    border-radius:20px;
+}
+
+.gotas{
+    position:absolute;
+    top:0;
+    width:100%;
+}
+
+.gotas span{
+    position:absolute;
+    width:12px;
+    height:18px;
+    background:white;
+    border-radius:10px;
+}
+
+.gotas span:nth-child(1){left:25px}
+.gotas span:nth-child(2){left:70px}
+.gotas span:nth-child(3){left:120px}
+.gotas span:nth-child(4){left:170px}
+.gotas span:nth-child(5){left:210px}
+
+.velas{
+    position:absolute;
+    top:-45px;
+    width:100%;
+    font-size:32px;
+}
+
+.numero{
+    margin-top:15px;
+    font-size:34px;
+    font-weight:bold;
+    color:#0a6fb6;
+}
+
+
+/* ======================================================
+   ✉️ CARTAS REALISTAS
+====================================================== */
+.contenedorCartas{
+    margin-top:40px;
+}
+
+.carta{
+    width:280px;
+    margin:30px auto;
+    perspective:1000px;
+    cursor:pointer;
+}
+
+.sobre{
+    position:relative;
+    width:100%;
+    height:170px;
+    background:#0a6fb6;
+    border-radius:10px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.25);
+}
+
+.solapa{
+    position:absolute;
+    top:0;
     left:0;
     right:0;
     margin:auto;
-    top:0;
     width:0;
     height:0;
-    border-left:130px solid transparent;
-    border-right:130px solid transparent;
-    border-top:70px solid #095a96;
-    border-radius:10px 10px 0 0;
+    border-left:140px solid transparent;
+    border-right:140px solid transparent;
+    border-top:90px solid #095a96;
+    transform-origin:top;
+    transition:0.6s;
+    z-index:3;
 }
 
-.mensajeCarta{
+.papel{
+    position:absolute;
+    left:10px;
+    right:10px;
+    bottom:10px;
+    height:0;
     background:white;
-    padding:15px;
-    border-radius:0 0 10px 10px;
-    max-height:0;
+    border-radius:8px;
+    padding:0 15px;
     overflow:hidden;
-    transition:0.5s;
+    transition:0.6s;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
-.carta.abierta .mensajeCarta{
-    max-height:200px;
+.carta.abierta .solapa{
+    transform:rotateX(180deg);
 }
 
-/* ====== CONFETI ====== */
+.carta.abierta .papel{
+    height:120px;
+    padding:15px;
+}
+
+
+/* ===== CONFETI ===== */
 .confeti{
     position:fixed;
     top:-10px;
@@ -196,10 +221,7 @@ h1{
 }
 
 @keyframes caer{
-    to{
-        transform:translateY(100vh) rotate(360deg);
-        opacity:0;
-    }
+    to{transform:translateY(100vh) rotate(360deg);opacity:0}
 }
 
 </style>
@@ -207,9 +229,9 @@ h1{
 
 <body>
 
-<!-- ===== PANTALLA INICIAL ===== -->
+<!-- ===== INICIO ===== -->
 <div id="inicio">
-    <div class="sobre" onclick="abrirTodo()">💌 ABRIR</div>
+    <div class="sobreGrande" onclick="abrirTodo()">💌 ABRIR</div>
 </div>
 
 
@@ -219,45 +241,46 @@ h1{
 <h1>Feliz 19 💙</h1>
 
 <div class="pastel">
-    <div class="numero">19</div>
     <div class="velas">🕯️🕯️</div>
-    <div class="capa top"></div>
-    <div class="capa medio"></div>
-    <div class="capa base"></div>
+    <div class="torta">
+        <div class="crema"></div>
+        <div class="gotas">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </div>
+    <div class="plato"></div>
+    <div class="numero">19</div>
 </div>
 
-<p id="mensaje">Feliz cumpleaños. Espero que tenga un día muy bonito 💙</p>
+<p>Feliz cumpleaños. Espero que tenga un día muy bonito 💙</p>
 
 
 <div class="contenedorCartas">
 
 <div class="carta" onclick="abrirCarta(this)">
-    <div class="sobreCarta">Carta 1</div>
-    <div class="mensajeCarta">
-        Hoy cumples 19 y solo quiero recordarte lo importante que eres para mí.
-        Felices 19 vueltas al sol amor.
+    <div class="sobre">
+        <div class="solapa"></div>
+        <div class="papel">Hoy cumples 19 y solo quiero recordarte lo importante que eres para mí. Felices 19 vueltas al sol amor.</div>
     </div>
 </div>
 
 <div class="carta" onclick="abrirCarta(this)">
-    <div class="sobreCarta">Carta 2</div>
-    <div class="mensajeCarta">
-        Espero que cada uno de sus sueños se cumpla y pueda estar a su lado.
-        Siempre estaré orgullosa de usted.
+    <div class="sobre">
+        <div class="solapa"></div>
+        <div class="papel">Espero que cada uno de sus sueños se cumpla y pueda estar a su lado. Siempre estaré orgullosa de usted.</div>
     </div>
 </div>
 
 <div class="carta" onclick="abrirCarta(this)">
-    <div class="sobreCarta">Carta 3</div>
-    <div class="mensajeCarta">
-        Queda pendiente esa comida para celebrar su cumple ❤️
+    <div class="sobre">
+        <div class="solapa"></div>
+        <div class="papel">Queda pendiente esa comida para celebrar su cumple ❤️</div>
     </div>
 </div>
 
 </div>
 
 </div>
-
 
 <script>
 
